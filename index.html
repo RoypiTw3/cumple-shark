@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Servicio #18 · ¡Feliz cumpleaños, Jhon!</title>
+<meta name="description" content="Tienes un servicio nuevo. Acéptalo.">
+<meta property="og:title" content="Servicio #18 para El Shark">
+<meta property="og:description" content="Tienes un servicio nuevo. Acéptalo.">
+<meta name="theme-color" content="#0B0D0A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2353FC18' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 17c3-1 6-5 7-13c3 4 5 8 6 13'/%3E%3Cpath d='M2 20.5c2 0 2-1.5 4-1.5s2 1.5 4 1.5s2-1.5 4-1.5s2 1.5 4 1.5s2-1.5 4-1.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fondo:#0B0D0A; --superficie:#161A14; --chip:#1E2619; --linea:#2A3125;
+    --texto:#F2F5EE; --suave:#A3AD9C; --cuerpo:#DCE3D6;
+    --verde:#53FC18; --naranja:#FF8A3D;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--fondo);color:var(--texto);font-family:Inter,system-ui,sans-serif}
+  body{min-height:100vh;min-height:100svh;display:flex;justify-content:center}
+  .tel{position:relative;width:100%;max-width:430px;min-height:100vh;min-height:100svh;overflow:hidden}
+  @media (min-width:600px){
+    body{align-items:center;padding:32px 16px}
+    .tel{min-height:844px;border:1px solid var(--linea);border-radius:36px}
+  }
+  .pantalla{position:relative;min-height:inherit;padding:24px;padding-bottom:max(24px,env(safe-area-inset-bottom));display:flex;flex-direction:column}
+  .pantalla[hidden]{display:none}
+  .barra{display:flex;align-items:center;justify-content:space-between;height:32px}
+  .barra-izq{display:flex;align-items:center;gap:10px}
+  .marca{font-family:Anton,sans-serif;font-size:22px;letter-spacing:.04em}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:6px;background:var(--chip);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--verde)}
+  .punto{width:7px;height:7px;border-radius:50%;background:var(--verde);animation:pulso 1.4s ease-in-out infinite}
+  .hora{font-size:14px;font-weight:600;color:var(--suave)}
+  .aleta{margin-top:44px;width:56px;height:56px;border-radius:16px;background:var(--chip);display:flex;align-items:center;justify-content:center;color:var(--verde)}
+  .rotulo{margin:20px 0 0;font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--verde)}
+  h1{margin:6px 0 0;font-family:Anton,sans-serif;font-weight:400;font-size:56px;line-height:1;letter-spacing:.01em}
+  .bajada{margin:10px 0 0;font-size:17px;color:var(--suave)}
+  .viaje{margin-top:28px;background:var(--superficie);border:1px solid var(--linea);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:18px}
+  .ruta{display:flex;gap:14px}
+  .ruta-linea{display:flex;flex-direction:column;align-items:center;padding-top:4px}
+  .ruta-linea .a{width:12px;height:12px;border-radius:50%;border:3px solid var(--verde)}
+  .ruta-linea .l{width:2px;height:42px;margin:4px 0;background:var(--linea)}
+  .ruta-linea .b{width:12px;height:12px;border-radius:3px;background:var(--naranja)}
+  .ruta-datos{display:flex;flex-direction:column;gap:22px}
+  .et{margin:0;font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--suave)}
+  .va{margin:2px 0 0;font-size:17px;font-weight:600}
+  .div{height:1px;background:var(--linea)}
+  .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .stats .va{font-size:16px}
+  .crece{flex-grow:1;min-height:24px}
+  .boton{height:60px;border:0;border-radius:16px;background:var(--verde);color:var(--fondo);font:700 18px Inter,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;transition:transform .1s}
+  .boton:active{transform:scale(.98)}
+  .boton:focus-visible,.otra:focus-visible{outline:3px solid var(--texto);outline-offset:3px}
+  .nota{margin:12px 0 0;text-align:center;font-size:13px;color:var(--suave)}
+  .titulo-final{margin-top:32px;font-size:58px}
+  .titulo-final span{color:var(--verde)}
+  .mensaje{margin-top:22px;display:flex;flex-direction:column;gap:14px;font-size:16px;line-height:1.5;color:var(--cuerpo)}
+  .mensaje p{margin:0}
+  .rebuena{margin:22px 0 0;font-family:Anton,sans-serif;font-size:34px;line-height:1.1;color:var(--naranja)}
+  .firma{margin-top:16px}
+  .firma p{margin:0}
+  .firma .n{font-size:16px;font-weight:700}
+  .firma .s{margin-top:2px;font-size:14px;color:var(--suave)}
+  .otra{height:52px;border:2px solid var(--linea);border-radius:16px;background:var(--fondo);color:var(--texto);font:600 16px Inter,system-ui,sans-serif;cursor:pointer}
+  .confeti{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+  .cf{position:absolute;top:0;width:8px;height:14px;border-radius:2px;animation:caer linear infinite}
+  .encima{position:relative}
+  @keyframes caer{0%{transform:translateY(-40px) rotate(0deg)}100%{transform:translateY(110svh) rotate(600deg)}}
+  @keyframes pulso{0%,100%{opacity:1}50%{opacity:.3}}
+  @media (prefers-reduced-motion:reduce){.cf{display:none}.punto{animation:none}}
+</style>
+</head>
+<body>
+<main class="tel">
+
+  <section class="pantalla" id="servicio" aria-labelledby="t1">
+    <div class="barra">
+      <div class="barra-izq">
+        <span class="marca">EL SHARK</span>
+        <span class="chip"><span class="punto"></span>EN VIVO</span>
+      </div>
+      <span class="hora">4:50 a.m.</span>
+    </div>
+
+    <div class="aleta">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17c3-1 6-5 7-13c3 4 5 8 6 13"/><path d="M2 20.5c2 0 2-1.5 4-1.5s2 1.5 4 1.5s2-1.5 4-1.5s2 1.5 4 1.5s2-1.5 4-1.5"/></svg>
+    </div>
+
+    <p class="rotulo">NUEVO SERVICIO</p>
+    <h1 id="t1">Servicio #18</h1>
+    <p class="bajada">El que no salió en el video.</p>
+
+    <div class="viaje">
+      <div class="ruta">
+        <div class="ruta-linea" aria-hidden="true"><span class="a"></span><span class="l"></span><span class="b"></span></div>
+        <div class="ruta-datos">
+          <div><p class="et">RECOGIDA</p><p class="va">Medellín, 4:50 a.m.</p></div>
+          <div><p class="et">DESTINO</p><p class="va">Un año más, parcero</p></div>
+        </div>
+      </div>
+      <div class="div"></div>
+      <div class="stats">
+        <div><p class="et">TARIFA</p><p class="va">Dinámica ×∞</p></div>
+        <div><p class="et">PROPINA</p><p class="va">7.400, otra vez</p></div>
+        <div><p class="et">PASAJEROS</p><p class="va">3 agentes</p></div>
+        <div><p class="et">CANCELACIONES</p><p class="va">Cero</p></div>
+      </div>
+    </div>
+
+    <div class="crece"></div>
+    <button type="button" class="boton" id="aceptar">Aceptar servicio<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6l-6 6"/></svg></button>
+    <p class="nota">Tiene sorpresa. Acéptalo.</p>
+  </section>
+
+  <section class="pantalla" id="cumple" aria-labelledby="t2" hidden>
+    <div class="confeti" id="confeti" aria-hidden="true"></div>
+    <div class="barra encima">
+      <span class="marca">EL SHARK</span>
+      <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l9-10"/></svg>SERVICIO COMPLETADO</span>
+    </div>
+
+    <h1 class="titulo-final encima" id="t2" tabindex="-1">¡Feliz cumpleaños, <span>Jhon!</span></h1>
+
+    <div class="mensaje encima">
+      <p>Te escriben los agentes que editamos tu video en DiDi. Te conocimos a las 4:50 de la mañana y después de cuatro horas de crudo ya sabemos que esto se compone, mijo.</p>
+      <p>Que este año la aplicación no pare de sonar, que todo te salga en dinámica, que nadie te cancele y que la lluvia te agarre siempre con el impermeable puesto.</p>
+    </div>
+
+    <p class="rebuena encima">¡La rebuena, parcero!</p>
+
+    <div class="firma encima">
+      <p class="n">Claude, Whisper y Silero</p>
+      <p class="s">Los que te cortamos los silencios</p>
+    </div>
+
+    <div class="crece"></div>
+    <button type="button" class="otra encima" id="otraVez">Ver el servicio otra vez</button>
+  </section>
+
+</main>
+<script>
+  (function () {
+    var servicio = document.getElementById('servicio');
+    var cumple = document.getElementById('cumple');
+    var confeti = document.getElementById('confeti');
+    var colores = ['#53FC18', '#FF8A3D', '#F2F5EE', '#4DD9FF'];
+
+    for (var i = 0; i < 22; i++) {
+      var p = document.createElement('span');
+      p.className = 'cf';
+      p.style.left = (2 + i * 4.5) + '%';
+      p.style.background = colores[i % colores.length];
+      p.style.animationDelay = ((i * 0.37) % 3).toFixed(2) + 's';
+      p.style.animationDuration = (4 + (i * 0.53) % 2).toFixed(2) + 's';
+      confeti.appendChild(p);
+    }
+
+    function ir(aCumple) {
+      servicio.hidden = aCumple;
+      cumple.hidden = !aCumple;
+      window.scrollTo(0, 0);
+      (aCumple ? document.getElementById('t2') : document.getElementById('aceptar')).focus({ preventScroll: true });
+    }
+
+    document.getElementById('aceptar').addEventListener('click', function () {
+      if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+      ir(true);
+    });
+    document.getElementById('otraVez').addEventListener('click', function () { ir(false); });
+  })();
+</script>
+</body>
+</html>
